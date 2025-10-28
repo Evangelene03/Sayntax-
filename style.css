@@ -1,20 +1,66 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f3e6f1; /* lilac background */
-    color: #4a2c4a;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
+  font-family: 'Arial', sans-serif;
+  background-color: #f3e6f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background-color: #ffffffcc;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
 }
 
 h1 {
-    font-size: 2.5rem;
+  color: #6b2c6b;
+  margin-bottom: 10px;
 }
 
 p {
-    font-size: 1.2rem;
+  color: #4a2c4a;
+  margin-bottom: 20px;
+}
+
+textarea {
+  width: 100%;
+  height: 120px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  resize: none;
+  font-size: 1rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+button {
+  background-color: #b084cc;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #935aad;
+}
+
+#output {
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #4a2c4a;
 }
