@@ -1,23 +1,36 @@
+/* Animated gradient background */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f3e6f1;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0;
+  background: linear-gradient(-45deg, #d3b0e0, #f3e6f1, #cfa0d3, #e7d0f1);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
 }
 
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* Glass-style container */
 .container {
-  background-color: #ffffffcc;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
   padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
   max-width: 500px;
   width: 90%;
   text-align: center;
 }
 
+/* Typography */
 h1 {
   color: #6b2c6b;
   margin-bottom: 10px;
@@ -28,20 +41,23 @@ p {
   margin-bottom: 20px;
 }
 
+/* Textarea styling */
 textarea {
   width: 100%;
   height: 120px;
-  border-radius: 10px;
+  border-radius: 15px;
   border: 1px solid #ccc;
   padding: 10px;
   resize: none;
   font-size: 1rem;
+  margin-bottom: 15px;
 }
 
+/* Buttons styling */
 .buttons {
   display: flex;
   justify-content: space-around;
-  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 button {
@@ -49,7 +65,7 @@ button {
   border: none;
   color: white;
   padding: 10px 20px;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
   font-size: 1rem;
   transition: 0.3s;
@@ -59,8 +75,10 @@ button:hover {
   background-color: #935aad;
 }
 
+/* Output section */
 #output {
-  margin-top: 20px;
   font-size: 1rem;
   color: #4a2c4a;
+  text-align: left;
 }
+
