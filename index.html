@@ -1,30 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Sayntaxx - Home</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sayntaxx</title>
+
+  <!-- Only relative paths (no leading /) on GitHub project pages -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/logo.png" />
+  <meta name="description" content="Sayntaxx — grammar and pronunciation helper" />
 </head>
 <body>
+  <!-- If the browser can't play video, we'll add 'no-video' class via script -->
+  <script>
+    (function () {
+      var v = document.createElement('video');
+      if (!v || !v.canPlayType || !v.canPlayType('video/mp4')) {
+        document.documentElement.classList.add('no-video');
+      }
+      // Respect reduced motion
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('no-video');
+      }
+    })();
+  </script>
 
-  <!-- Logo -->
-  <img src="logo.png" alt="Sayntaxx Logo" class="logo">
+  <!-- HERO: Background video with graceful fallback to image -->
+  <section class="hero">
+    <video class="hero__video" autoplay muted loop playsinline poster="images/bg.jpg">
+      <source src="media/bg.mp4" type="video/mp4" />
+      <!-- Optional: if you later add a WebM encode
+      <source src="media/bg.webm" type="video/webm" />
+      -->
+      <!-- If video fails completely, users will see the poster + CSS image fallback -->
+    </video>
 
-  <!-- Navigation -->
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+    <div class="hero__overlay"></div>
 
-  <!-- Main content -->
-  <main>
-    <h1>Welcome to Sayntaxx</h1>
-    <p>Your ultimate grammar and pronunciation helper.</p>
-    <p>[Placeholder for grammar check tool]</p>
-    <p>[Placeholder for pronunciation tool]</p>
+    <div class="hero__content">
+      <img class="hero__logo" src="images/logo.png" alt="Sayntaxx logo" />
+      <h1>Sayntaxx</h1>
+      <p>Your grammar & pronunciation sidekick.</p>
+      <a class="btn" href="#start">Get Started</a>
+    </div>
+  </section>
+
+  <!-- Example page content -->
+  <main id="start" class="container">
+    <h2>Welcome</h2>
+    <p>If you can read this, the paths are correct and the background is loaded properly.</p>
   </main>
 
+  <!-- (Optional) tiny fix for mobile iOS pausing videos when hidden -->
+  <script>
+    // Ensure video keeps covering when viewport changes
+    const vid = document.querySelector('.hero__video');
+    if (vid) {
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden && vid.paused && !document.documentElement.classList.contains('no-video')) {
+          vid.play().catch(() => {});
+        }
+      });
+    }
+  </script>
 </body>
 </html>
